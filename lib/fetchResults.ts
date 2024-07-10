@@ -3,6 +3,7 @@ import { Result } from "@/typings";
 
 export async function fetchResults(searchParams: searchParams) {
     const username = process.env.OXYLABS_USERNAME;
+    console.log(username);
     const password = process.env.OXYLABS_PASSWORD;
 
     const url = new URL(searchParams.url); //baseのURL
