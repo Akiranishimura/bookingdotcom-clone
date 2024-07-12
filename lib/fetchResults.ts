@@ -3,11 +3,11 @@ import { Result } from "@/typings";
 
 export async function fetchResults(searchParams: searchParams) {
     const username = process.env.OXYLABS_USERNAME;
-    console.log(username);
+    // console.log(username);
     const password = process.env.OXYLABS_PASSWORD;
 
     const url = new URL(searchParams.url); //baseのURL
-    Object.keys(searchParams).forEach((key)=>{
+    Object.keys(searchParams).forEach((key)=>{ //スクレイピング先のURLを作成
         if (key ==="url" || key === "location") return;
 
         const value = searchParams[key as keyof searchParams];

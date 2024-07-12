@@ -1,9 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import SearchFormForSearch from "@/components/SearchFormForSearch";
 import { fetchResults } from "@/lib/fetchResults";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-type Props = {
+export type Props = {
   searchParams: searchParams;
 };
 
@@ -17,7 +18,7 @@ export type searchParams = {
   src: string;
 };
 
-async function searchPage({ searchParams }: Props) {
+async function searchPage({ searchParams }: Props) { //URLのパラメータを引数に
   //server componentなのでasync
   console.log(searchParams);
   if (!searchParams.url) return notFound();
@@ -36,6 +37,8 @@ async function searchPage({ searchParams }: Props) {
             {searchParams.checkin} to {searchParams.checkout}
           </span>
         </h2>
+
+      <SearchFormForSearch searchParams={searchParams}/>
 
         <hr className="mb-5" />
 
